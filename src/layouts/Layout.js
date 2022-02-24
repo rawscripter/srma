@@ -12,6 +12,7 @@ import RegisterPage from 'components/pages/auth/register.page';
 import { AuthPorviderContext } from 'services/auth/auth.context';
 import { BikeServiceContext } from 'services/bikeService/bikeService.context';
 import { UserProfileContext } from 'services/profile/userProfile.context';
+import { AppoinmentContext } from 'services/appoinment/appoinment.context';
 
 const Layout = () => {
   const HTMLClassList = document.getElementsByTagName('html')[0].classList;
@@ -32,22 +33,24 @@ const Layout = () => {
     <AuthPorviderContext>
       <UserProfileContext>
         <BikeServiceContext>
-          <Switch>
-            <Route path="/" exact component={Landing} />
-            <Route path="/auth/login" exact component={LoginPage} />
-            <Route path="/auth/register" exact component={RegisterPage} />
-            <Route path="/errors" component={ErrorLayout} />
-            <Route component={MainLayout} />
-            <Redirect to="/errors/404" />
-          </Switch>
-          {/* <SettingsToggle /> */}
-          {/* <SettingsPanel /> */}
-          <ToastContainer
-            transition={Fade}
-            closeButton={CloseButton}
-            closeOnClick
-            position={toast.POSITION.BOTTOM_LEFT}
-          />
+          <AppoinmentContext>
+            <Switch>
+              <Route path="/" exact component={Landing} />
+              <Route path="/auth/login" exact component={LoginPage} />
+              <Route path="/auth/register" exact component={RegisterPage} />
+              <Route path="/errors" component={ErrorLayout} />
+              <Route component={MainLayout} />
+              <Redirect to="/errors/404" />
+            </Switch>
+            {/* <SettingsToggle /> */}
+            {/* <SettingsPanel /> */}
+            <ToastContainer
+              transition={Fade}
+              closeButton={CloseButton}
+              closeOnClick
+              position={toast.POSITION.BOTTOM_LEFT}
+            />
+          </AppoinmentContext>
         </BikeServiceContext>
       </UserProfileContext>
     </AuthPorviderContext>

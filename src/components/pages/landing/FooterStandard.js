@@ -1,14 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import createMarkup from 'helpers/createMarkup';
-import Section from 'components/common/Section';
-import IconGroup from 'components/common/icon/IconGroup';
 import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { blogPostList, menuList1, menuList2 } from 'data/footer';
-import { bgWhiteIcons } from 'data/socialIcons';
-import { version } from 'config';
 
 const FooterTitle = ({ children }) => (
   <h5 className="text-uppercase text-white opacity-85 mb-3">{children}</h5>
@@ -53,6 +47,7 @@ const FooterBlogList = ({ list }) => (
 FooterBlogList.propTypes = { list: PropTypes.array.isRequired };
 
 const FooterStandard = () => {
+  // eslint-disable-next-line no-unused-vars
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,

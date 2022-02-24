@@ -1,5 +1,6 @@
 const windowHeight = window.innerHeight;
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default () => {
   const scrollTop = window.scrollY;
   let alpha = (scrollTop / windowHeight) * 2;

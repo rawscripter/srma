@@ -76,7 +76,7 @@ const QuickLinkItem = ({ avatar, avatarText, img, title, link, hr }) => {
                 mediaClass="fs-2 bg-soft-primary text-primary"
               />
             )}
-            {img && <img src={img} width={40} height={40} />}
+            {img && <img alt='' src={img} width={40} height={40} />}
             <p
               className={classNames(
                 'mb-0 fw-medium text-800 text-truncate fs--2',

@@ -1,12 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 import classNames from 'classnames';
 import AppContext from 'context/Context';
 import Logo from 'components/common/Logo';
-import SearchBox from './SearchBox';
-import NavbarTopDropDownMenus from './NavbarTopDropDownMenus';
 import { navbarBreakPoint, topNavbarBreakpoint } from 'config';
-import autoCompleteInitialItem from 'data/autocomplete/autocomplete';
 import TopNavRightSideNavItem from './TopNavRightSideNavItem';
 import { useLocation } from 'react-router';
 
@@ -72,7 +69,7 @@ const NavbarTop = () => {
         </button>
       </Navbar.Toggle>
 
-      <Logo at="navbar-top" width={40} id="topLogo" /> 
+      <Logo at="navbar-top" width={40} id="topLogo" />
       <TopNavRightSideNavItem />
     </Navbar>
   );

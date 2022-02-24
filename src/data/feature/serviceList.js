@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-anonymous-default-export
 export default [
   {
     media: { icon: ['fas', 'wrench'], color: 'inverse', className: 'fs-4' },

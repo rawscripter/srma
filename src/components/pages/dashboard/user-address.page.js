@@ -1,26 +1,39 @@
-/* eslint-disable prettier/prettier */
-import React, { useContext, useEffect } from 'react';
-import { Row, Col, Form, Card, Button } from 'react-bootstrap';
+import React, { useContext, useEffect, useState } from 'react';
+import { Row, Col, Form, Card, Button, Spinner } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import AddressForm from './parts/AddressForm';
 import { UserProfileProvider } from 'services/profile/userProfile.context';
-
-
+import { toast } from 'react-toastify';
 
 const UserAddressPage = () => {
     const {
         isLoading,
         loadUserAddress,
         userAddress,
-        setUserAddress
+        saveUserAddress,
+        successMessage
     } = useContext(UserProfileProvider);
+    const [currentAddressId, setCurrentAddressId] = useState(null);
 
-    console.log('userAddress', userAddress);
 
     useEffect(() => {
         loadUserAddress();
         // eslint-disable-next-line
     }, []);
+
+
+    useEffect(() => {
+        if (successMessage) {
+            toast.success(successMessage);
+        }
+        // eslint-disable-next-line
+    }, [successMessage]);
+
+
+    useEffect(() => {
+        console.log(currentAddressId);
+        // eslint-disable-next-line
+    }, [currentAddressId]);
 
     const {
         register,
@@ -28,19 +41,20 @@ const UserAddressPage = () => {
         formState: { errors },
         watch,
         setValue,
-        reset,
-        clearErrors,
     } = useForm();
 
 
+
     const onSubmitData = data => {
-        setUserAddress({ ...userAddress, ...data });
+        saveUserAddress({ ...data, adresse_id: currentAddressId });
     };
     const onError = () => {
         // clearErrors();
     };
 
-
+    if (isLoading) {
+        return <Spinner animation="border" variant="primary" />;
+    }
 
     return (
         <>
@@ -61,10 +75,12 @@ const UserAddressPage = () => {
             >
                 <Card.Body>
                     <AddressForm
+                        currentAddressId={currentAddressId}
+                        setCurrentAddressId={setCurrentAddressId}
                         register={register}
                         errors={errors}
                         setValue={setValue}
-                        user={userAddress}
+                        addressList={userAddress}
                         watch={watch}
                     />
                     <Row>

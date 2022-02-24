@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Button } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import bg2 from 'assets/img/generic/stromrad-stuttgart_ebike-2021_riesemueller-load-75_coal-grey.jpeg';
 import Section from 'components/common/Section';
 

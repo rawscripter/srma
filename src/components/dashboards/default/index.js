@@ -1,15 +1,16 @@
 import React, { useContext, useEffect } from 'react';
 import { Row, Col, Spinner } from 'react-bootstrap';
-import serviceList from 'data/feature/serviceList';
 import CardService from './CardService';
 import className from 'classnames';
 import { BikeServiceProvider } from 'services/bikeService/bikeService.context';
-
-
-
+import { UserServicesTable } from './../parts/UserServicesTable';
+import { UserInvoiceTable } from './../parts/UserInvoiceTable';
+import { AppoinmentProvider } from 'services/appoinment/appoinment.context';
+import { UserAppoinment } from './../parts/UserAppoinment';
 
 const Dashboard = () => {
   const { services, loadServices, isLoading } = useContext(BikeServiceProvider);
+  const { selectedService } = useContext(AppoinmentProvider);
 
   useEffect(() => {
     loadServices();
@@ -42,6 +43,17 @@ const Dashboard = () => {
             <CardService {...service} />
           </Col>
         ))}
+      </Row>
+
+      {selectedService && <UserAppoinment />}
+
+      <Row>
+        <Col lg={6} className="mt-6">
+          <UserServicesTable />
+        </Col>
+        <Col lg={6} className="mt-6">
+          <UserInvoiceTable />
+        </Col>
       </Row>
     </>
   );

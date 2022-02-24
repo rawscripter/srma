@@ -4,10 +4,11 @@ import { UserProfileProvider } from 'services/profile/userProfile.context';
 
 import { useForm } from 'react-hook-form';
 import PersonalForm from './parts/PersonalForm';
+import { toast } from 'react-toastify';
 
 
 const UserDetailsPage = () => {
-  const { userDetails, isLoading, loadUserDetails, setUserDetails } = useContext(UserProfileProvider);
+  const { userDetails, isLoading, loadUserDetails, saveUserDetails, successMessage, error, setUserDetails } = useContext(UserProfileProvider);
 
   const {
     register,
@@ -15,8 +16,6 @@ const UserDetailsPage = () => {
     formState: { errors },
     watch,
     setValue,
-    reset,
-    clearErrors,
   } = useForm();
 
 
@@ -25,8 +24,25 @@ const UserDetailsPage = () => {
     // eslint-disable-next-line
   }, []);
 
+  useEffect(() => {
+    if (successMessage) {
+      toast.success(successMessage);
+    }
+    // eslint-disable-next-line
+  }, [successMessage]);
+
+  useEffect(() => {
+    if (error) {
+      toast.success(error);
+    }
+    // eslint-disable-next-line
+  }, [error]);
+
   const onSubmitData = data => {
-    setUserDetails({ ...userDetails, ...data });
+    // remove user_ prefix object key from data
+    const userData = { ...userDetails, ...data };
+    saveUserDetails(userData);
+    setUserDetails(userData);
   };
   const onError = () => {
   };

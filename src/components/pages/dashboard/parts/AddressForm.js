@@ -1,12 +1,62 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import WizardInput from './WizardInput';
-import { Col, OverlayTrigger, Row, Tooltip } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Col, Row, Form } from 'react-bootstrap';
 
-const AddressForm = ({ register, errors, setValue, user }) => {
+const AddressForm = ({ register, errors, setValue, addressList, setCurrentAddressId, currentAddressId }) => {
+  const [userAddress, setUserAddress] = React.useState({});
+
+  React.useEffect(() => {
+
+    if (currentAddressId) {
+      setUserAddress(addressList.find(address => address.adresse_id === currentAddressId));
+    } else {
+      if (addressList.length > 0) {
+        setUserAddress(addressList[0]);
+      }
+    }
+    // eslint-disable-next-line
+  }, [addressList]);
+
+  const setAddressDropdown = (e) => {
+    const address = addressList.find(
+      // eslint-disable-next-line
+      (address) => address.adresse_id == e.target.value,
+    );
+    if (address) {
+      setUserAddress(address);
+      setCurrentAddressId(address.adresse_id);
+    } else {
+      setUserAddress({});
+      setCurrentAddressId('');
+    }
+  };
+
   return (
     <>
+      <Row>
+        <Col lg={4}>
+          <div className="form-group mb-4">
+            <Form.Select aria-label="Default select example"
+              onChange={setAddressDropdown}
+              name="adresse_id"
+            >
+
+              {addressList.map((address, index) => (
+                <option
+                  set selected={userAddress.adresse_id === address.adresse_id}
+                  value={address.adresse_id} key={index}>Address - {address.adresse_id}</option>
+              ))}
+              {addressList.length < 4 && <option value="">
+                Neues Fahrrad hinzufügen
+              </option>}
+
+            </Form.Select>
+          </div>
+        </Col>
+      </Row>
+
+
       <Row className="mb-3">
         <WizardInput
           type="text"
@@ -16,10 +66,10 @@ const AddressForm = ({ register, errors, setValue, user }) => {
           errors={errors}
           formControlProps={{
             ...register('street', {
-              required: 'Straße is required',
-              value: user.street,
+              // required: 'Straße is required',
+              value: userAddress.street,
             }),
-            defaultValue: user.street
+            defaultValue: userAddress.street
           }}
         />
         <WizardInput
@@ -30,10 +80,10 @@ const AddressForm = ({ register, errors, setValue, user }) => {
           errors={errors}
           formControlProps={{
             ...register('street_number', {
-              required: 'Hausnummer is required',
-              value: user.street_number
+              // required: 'Hausnummer is required',
+              value: userAddress.street_number
             }),
-            defaultValue: user.street_number
+            defaultValue: userAddress.street_number
           }}
         />
         <WizardInput
@@ -44,10 +94,10 @@ const AddressForm = ({ register, errors, setValue, user }) => {
           errors={errors}
           formControlProps={{
             ...register('floor', {
-              required: 'Geschoss is required',
-              value: user.floor
+              // required: 'Geschoss is required',
+              value: userAddress.floor
             }),
-            defaultValue: user.floor
+            defaultValue: userAddress.floor
           }}
         />
       </Row>
@@ -60,10 +110,10 @@ const AddressForm = ({ register, errors, setValue, user }) => {
           errors={errors}
           formControlProps={{
             ...register('postal_code', {
-              required: 'Postleitzahl is required',
-              value: user.postal_code
+              // required: 'Postleitzahl is required',
+              value: userAddress.postal_code
             }),
-            defaultValue: user.postal_code
+            defaultValue: userAddress.postal_code
           }}
         />
         <WizardInput
@@ -74,10 +124,10 @@ const AddressForm = ({ register, errors, setValue, user }) => {
           errors={errors}
           formControlProps={{
             ...register('city', {
-              required: 'Stadt is required',
-              value: user.city
+              // required: 'Stadt is required',
+              value: userAddress.city
             }),
-            defaultValue: user.city
+            defaultValue: userAddress.city
           }}
         />
         <WizardInput
@@ -88,10 +138,10 @@ const AddressForm = ({ register, errors, setValue, user }) => {
           errors={errors}
           formControlProps={{
             ...register('country', {
-              required: 'Bundesland is required',
-              value: user.country
+              // required: 'Bundesland is required',
+              value: userAddress.country
             }),
-            defaultValue: user.country
+            defaultValue: userAddress.country
           }}
         />
       </Row>
@@ -103,10 +153,10 @@ const AddressForm = ({ register, errors, setValue, user }) => {
         errors={errors}
         formControlProps={{
           ...register('comment', {
-            required: 'Kommentar is required',
-            value: user.comment
+            // required: 'Kommentar is required',
+            value: userAddress.comment
           }),
-          defaultValue: user.comment
+          defaultValue: userAddress.comment
         }}
       />
     </>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import WizardInput from './WizardInput';
-import { Col, Row, Form } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 
 const PersonalForm = ({ register, errors, setValue, user }) => {
   return (

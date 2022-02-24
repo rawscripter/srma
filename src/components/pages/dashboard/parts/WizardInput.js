@@ -93,7 +93,9 @@ const WizardInput = ({
         >
           <option value="">{placeholder}</option>
           {options.map(option => (
-            <option value={option} key={option}>
+            <option
+              set selected={formControlProps.value === option.value}
+              value={option} key={option}>
               {option}
             </option>
           ))}

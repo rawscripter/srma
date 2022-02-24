@@ -9,9 +9,8 @@ const useToggleStylesheet = (isRTL, isDark, configDispatch) => {
       link => link.remove()
     );
     const link = document.createElement('link');
-    link.href = `${process.env.PUBLIC_URL}/css/theme${
-      isRTL ? '-rtl' : ''
-    }.min.css`;
+    link.href = `${process.env.PUBLIC_URL}/css/theme${isRTL ? '-rtl' : ''
+      }.min.css`;
     link.type = 'text/css';
     link.rel = 'stylesheet';
     link.className = 'theme-stylesheet';
@@ -30,6 +29,7 @@ const useToggleStylesheet = (isRTL, isDark, configDispatch) => {
     configDispatch({
       type: 'RESET'
     });
+    // eslint-disable-next-line
   }, [isDark]);
 
   return { isLoaded };

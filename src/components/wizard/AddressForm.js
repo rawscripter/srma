@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import WizardInput from './WizardInput';
-import { Col, OverlayTrigger, Row, Tooltip } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Col, Row } from 'react-bootstrap';
 
 const AddressForm = ({ register, errors, setValue }) => {
   return (

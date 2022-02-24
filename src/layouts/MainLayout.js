@@ -29,7 +29,7 @@ const MainLayout = () => {
   // const isChat = pathname.includes('chat');
 
   const {
-    config: { isFluid, navbarPosition }
+    config: { isFluid }
   } = useContext(AppContext);
 
   useEffect(() => {
@@ -42,6 +42,7 @@ const MainLayout = () => {
         }
       }
     }, 0);
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {

@@ -4,7 +4,7 @@ const sessionToken = localStorage.getItem('sessionToken');
 const userId = localStorage.getItem('userId');
 
 export const makeNewAppionmet = (payload) => {
-    return axios.post('http://localhost/srma/client2Server.php', {
+    return axios.post('https://bleibemobil.com/dev1/php/client2Server.php', {
         function: "saveUser-AppointmentInvoices",
         userId: userId,
         sessionId: sessionToken,
@@ -23,7 +23,7 @@ export const makeNewAppionmet = (payload) => {
 };
 
 export const fetchFreeTimeSlots = () => {
-    return axios.post('http://localhost/srma/client2Server.php', {
+    return axios.post('https://bleibemobil.com/dev1/php/client2Server.php', {
         function: "getTimeslots",
         userId: userId,
         sessionId: sessionToken

@@ -53,7 +53,7 @@ export const AuthPorviderContext = ({ children }) => {
                     setUser(data.userId);
                     setSession(data.sessionToken);
                     storeUserSession(data.userId, data.sessionToken);
-                    window.location.href = '/dashboard';
+                    window.location.href = '/';
                 }
             })
             .catch(error => {

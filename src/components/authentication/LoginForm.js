@@ -36,8 +36,8 @@ const LoginForm = ({ hasLabel, layout }) => {
   useEffect(() => {
     if (isLoggedIn) {
       toast.success(`Login successful`);
-      // redirect to dashboard
-      history.push('/dashboard');
+      // redirect to landing
+      history.push('/');
     }
     // eslint-disable-next-line
   }, [isLoggedIn]);

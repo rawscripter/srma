@@ -39,7 +39,7 @@ const AddressForm = ({ register, errors, setValue }) => {
           errors={errors}
           formControlProps={{
             ...register('floor', {
-              required: 'Geschoss is required',
+              required: false,
             })
           }}
         />
@@ -77,7 +77,7 @@ const AddressForm = ({ register, errors, setValue }) => {
           errors={errors}
           formControlProps={{
             ...register('country', {
-              required: 'Bundesland is required',
+              required: false,
             })
           }}
         />
@@ -90,7 +90,7 @@ const AddressForm = ({ register, errors, setValue }) => {
         errors={errors}
         formControlProps={{
           ...register('comment', {
-            required: 'Kommentar is required',
+            required: false,
           })
         }}
       />

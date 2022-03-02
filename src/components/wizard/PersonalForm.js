@@ -8,7 +8,7 @@ const PersonalForm = ({ register, errors, setValue }) => {
     <>
       <WizardInput
         type="text"
-        label="Titel Drdo"
+        label="Anrede"
         name="title"
         errors={errors}
         formGroupProps={{
@@ -16,7 +16,7 @@ const PersonalForm = ({ register, errors, setValue }) => {
         }}
         formControlProps={{
           ...register('title', {
-            required: 'Titel is required',
+            required: 'Anrede is required',
           })
         }}
       />
@@ -42,7 +42,7 @@ const PersonalForm = ({ register, errors, setValue }) => {
           errors={errors}
           formControlProps={{
             ...register('second_name', {
-              required: 'Zweiter Vorname is required',
+              required: false,
             })
           }}
         />
@@ -81,7 +81,7 @@ const PersonalForm = ({ register, errors, setValue }) => {
           errors={errors}
           formControlProps={{
             ...register('mobile', {
-              required: 'Handynummer is required',
+              required: false,
             })
           }}
         />
@@ -93,7 +93,7 @@ const PersonalForm = ({ register, errors, setValue }) => {
           errors={errors}
           formControlProps={{
             ...register('workphone', {
-              required: 'Geschaftliche Telefonnummer is required',
+              required: false,
             })
           }}
 
@@ -121,7 +121,7 @@ const PersonalForm = ({ register, errors, setValue }) => {
           errors={errors}
           formControlProps={{
             ...register('email2', {
-              required: 'Email 2 is required',
+              required: false,
             })
           }}
         />
@@ -133,7 +133,7 @@ const PersonalForm = ({ register, errors, setValue }) => {
           errors={errors}
           formControlProps={{
             ...register('email3', {
-              required: 'Email 3 is required',
+              required: false,
             })
           }}
         />

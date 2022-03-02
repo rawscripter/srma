@@ -29,7 +29,7 @@ const CardService = ({ service_id, service_prize, service_title, service_descrip
         {/* <h5 className="mb-2">${service_prize}</h5> */}
         <h5 className="mb-2">{service_title}</h5>
         {service_description && <p>{service_description}</p>}
-
+        {service_prize && <p>{service_prize}</p>}
       </Card.Body>
     </Card >
 

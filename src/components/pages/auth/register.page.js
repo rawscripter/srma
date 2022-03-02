@@ -12,7 +12,7 @@ const RegisterPage = () => {
   useEffect(() => {
     if (isLoggedIn) {
       // redirect to dashboard
-      history.push('/dashboard');
+      history.push('/');
     }
     // eslint-disable-next-line
   }, [isLoggedIn]);

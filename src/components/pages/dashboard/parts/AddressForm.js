@@ -37,7 +37,7 @@ const AddressForm = ({ register, errors, setValue, addressList, setCurrentAddres
       <Row>
         <Col lg={4}>
           <div className="form-group mb-4">
-            <Form.Select aria-label="Default select example"
+            <Form.Select aria-label="Wähle eine Adresse"
               onChange={setAddressDropdown}
               name="adresse_id"
             >
@@ -45,10 +45,10 @@ const AddressForm = ({ register, errors, setValue, addressList, setCurrentAddres
               {addressList.map((address, index) => (
                 <option
                   set selected={userAddress.adresse_id === address.adresse_id}
-                  value={address.adresse_id} key={index}>Address - {address.adresse_id}</option>
+                  value={address.adresse_id} key={index}>Adresse - {address.adresse_id}</option>
               ))}
               {addressList.length < 4 && <option value="">
-                Neues Fahrrad hinzufügen
+                Neue Adresse hinzufügen
               </option>}
 
             </Form.Select>

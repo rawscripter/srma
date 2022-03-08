@@ -22,11 +22,13 @@ export const UserServicesTable = () => {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>20.05.2020</td>
-                                <td>10:00</td>
-                                <td>Reifenservice</td>
+                                <td>20.04.2020</td>
+                                <td>15:00</td>
+                                <td>Schaltungsservice</td>
                                 <td>
-
+                                <div className='d-flex justify-content-around'>
+                                        <FontAwesomeIcon icon="location-arrow" />
+                                </div>
                                 </td>
                                 <td >
                                     <div className='d-flex justify-content-around'>
@@ -36,43 +38,33 @@ export const UserServicesTable = () => {
                                 </td>
                             </tr>
                             <tr>
-                                <td>20.05.2020</td>
-                                <td>10:00</td>
-                                <td>Reifenservice</td>
+                                <td>28.03.2020</td>
+                                <td>13:00</td>
+                                <td>Bremsenservice</td>
                                 <td>
-
+                                <div className='d-flex justify-content-around'>
+                                        <FontAwesomeIcon icon="location-arrow" />
+                                </div>
                                 </td>
                                 <td >
                                     <div className='d-flex justify-content-around'>
-                                        <FontAwesomeIcon icon="envelope" />
+                                        <FontAwesomeIcon icon="calendar-check" />
                                         <FontAwesomeIcon icon="calendar-alt" />
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>20.05.2020</td>
+                                <td>23.02.2022</td>
                                 <td>10:00</td>
                                 <td>Reifenservice</td>
                                 <td>
-
+                                <div className='d-flex justify-content-around'>
+                                        <FontAwesomeIcon icon="location-arrow" />
+                                </div>
                                 </td>
                                 <td >
                                     <div className='d-flex justify-content-around'>
-                                        <FontAwesomeIcon icon="envelope" />
-                                        <FontAwesomeIcon icon="calendar-alt" />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>20.05.2020</td>
-                                <td>10:00</td>
-                                <td>Reifenservice</td>
-                                <td>
-
-                                </td>
-                                <td >
-                                    <div className='d-flex justify-content-around'>
-                                        <FontAwesomeIcon icon="envelope" />
+                                        <FontAwesomeIcon icon="check-square" />
                                         <FontAwesomeIcon icon="calendar-alt" />
                                     </div>
                                 </td>

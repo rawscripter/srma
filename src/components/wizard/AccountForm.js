@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import WizardInput from './WizardInput';
 import { Col, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { checkUserEmail } from 'services/auth/auth.service';
 const AccountForm = ({ register, errors, watch }) => {
   const [isDup, setIsDup] = useState(false);
@@ -24,17 +23,17 @@ const AccountForm = ({ register, errors, watch }) => {
       <WizardInput
         type="email"
         errors={errors}
-        label="Email*"
+        label="Emailadresse*"
         name="email"
         formGroupProps={{ className: 'mb-3' }}
 
 
         formControlProps={{
           ...register('email', {
-            required: 'Email field is required',
+            required: 'Emailadresse ist notwendig',
             validate: value => {
               if (isDup) {
-                return 'Email is already taken';
+                return 'Emailadresse wird schon verwendet';
               }
               return true;
             }
@@ -52,15 +51,15 @@ const AccountForm = ({ register, errors, watch }) => {
         <WizardInput
           type="password"
           errors={errors}
-          label="Password*"
+          label="Passwort*"
           name="password"
           formGroupProps={{ as: Col, sm: 6 }}
           formControlProps={{
             ...register('password', {
-              required: 'You must specify a password',
+              required: 'Geben Sie ein Passwort ein',
               minLength: {
                 value: 2,
-                message: 'Password must have at least 2 characters'
+                message: 'Das Passwort muss mindestens 2 Stellen haben'
               }
             })
           }}
@@ -68,14 +67,14 @@ const AccountForm = ({ register, errors, watch }) => {
         <WizardInput
           type="password"
           errors={errors}
-          label="Confirm Password*"
+          label="Wiederhole Passwort*"
           name="confirmPassword"
           formGroupProps={{ as: Col, sm: 6 }}
           formControlProps={{
             ...register('confirmPassword', {
-              required: 'Confirm Password field is required',
+              required: 'Geben Sie das Passwort erneut ein',
               validate: value =>
-                value === watch('password') || 'The password do not match'
+                value === watch('password') || 'Die Passwörter stimmen nicht überein'
             })
           }}
         />
@@ -86,14 +85,14 @@ const AccountForm = ({ register, errors, watch }) => {
         errors={errors}
         label={
           <>
-            I accept the <Link to="#!"> terms</Link> and{' '}
-            <Link to="#!"> privacy policy</Link>
+            Ich akzeptiere die <a target="_blank" rel="noreferrer" href="https://www.stromrad.com/impressum/agb/"> AGB</a> und{' '} 
+            <a target="_blank" rel="noreferrer" href="https://www.stromrad.com/impressum/datenschutzhinweis/"> Datenschutzhinweise</a>
           </>
         }
         name="agreedToTerms"
         formControlProps={{
           ...register('agreedToTerms', {
-            required: 'You need to agree the terms and privacy policy.'
+            required: 'Sie müssen den ABGs und den Datenschutzhinweisen zustimmen'
           })
         }}
       />

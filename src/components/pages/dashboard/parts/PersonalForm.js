@@ -8,7 +8,7 @@ const PersonalForm = ({ register, errors, setValue, user }) => {
     <>
       <WizardInput
         type="text"
-        label="Titel Drdo"
+        label="Anrede"
         name="user_title"
         errors={errors}
         formGroupProps={{
@@ -46,7 +46,7 @@ const PersonalForm = ({ register, errors, setValue, user }) => {
           errors={errors}
           formControlProps={{
             ...register('user_second_name', {
-              required: 'Zweiter Vorname is required',
+              required: false,
               value: user.user_second_name
             }),
             defaultValue: user.user_second_name
@@ -91,7 +91,7 @@ const PersonalForm = ({ register, errors, setValue, user }) => {
           errors={errors}
           formControlProps={{
             ...register('user_mobile', {
-              required: 'Handynummer is required',
+              required: false,
               value: user.user_mobile
             }),
             defaultValue: user.user_mobile
@@ -105,7 +105,7 @@ const PersonalForm = ({ register, errors, setValue, user }) => {
           errors={errors}
           formControlProps={{
             ...register('user_workphone', {
-              required: 'Geschaftliche Telefonnummer is required',
+              required: false,
               value: user.user_workphone
             }),
             defaultValue: user.user_workphone
@@ -137,7 +137,7 @@ const PersonalForm = ({ register, errors, setValue, user }) => {
           errors={errors}
           formControlProps={{
             ...register('user_email2', {
-              required: 'Email 2 is required',
+              required: false,
               value: user.user_email2
             }),
             defaultValue: user.user_email2
@@ -151,7 +151,7 @@ const PersonalForm = ({ register, errors, setValue, user }) => {
           errors={errors}
           formControlProps={{
             ...register('user_email3', {
-              required: 'Email 3 is required',
+              required: false,
               value: user.user_email3
 
             }),

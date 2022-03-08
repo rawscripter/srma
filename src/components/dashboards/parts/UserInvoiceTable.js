@@ -33,7 +33,7 @@ export const UserInvoiceTable = () => {
                                 </td>
                             </tr>
                             <tr>
-                                <td>R20221457</td>
+                                <td>R20221235</td>
                                 <td >
                                     <div className='d-flex justify-content-around'>
                                         <FontAwesomeIcon icon="file-pdf" />
@@ -41,39 +41,10 @@ export const UserInvoiceTable = () => {
                                 </td>
                                 <td >
                                     <div className='d-flex justify-content-around'>
-                                        <FontAwesomeIcon icon="shopping-cart" />
+                                        <FontAwesomeIcon icon="file" />
                                     </div>
                                 </td>
                             </tr>
-
-                            <tr>
-                                <td>R20221457</td>
-                                <td >
-                                    <div className='d-flex justify-content-around'>
-                                        <FontAwesomeIcon icon="file-pdf" />
-                                    </div>
-                                </td>
-                                <td >
-                                    <div className='d-flex justify-content-around'>
-                                        <FontAwesomeIcon icon="shopping-cart" />
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>R20221457</td>
-                                <td >
-                                    <div className='d-flex justify-content-around'>
-                                        <FontAwesomeIcon icon="file-pdf" className='fs--10' />
-                                    </div>
-                                </td>
-                                <td >
-                                    <div className='d-flex justify-content-around'>
-                                        <FontAwesomeIcon icon="shopping-cart" />
-                                    </div>
-                                </td>
-                            </tr>
-
                         </tbody>
                     </Table>
                 </Card.Text>

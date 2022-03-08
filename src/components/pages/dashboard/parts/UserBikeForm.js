@@ -112,10 +112,10 @@ const UserBikeFrom = ({ register, errors, setValue, bikes }) => {
                             {bikes.map((bike, index) => (
                                 <option
                                     set selected={currnetBike.bike_id === bike.bike_id}
-                                    value={bike.bike_id} key={index}>Bike - {bike.bike_id}</option>
+                                    value={bike.bike_id} key={index}>Fahrrad - {bike.bike_id}</option>
                             ))}
                             {bikes.length < 4 && <option value="">
-                                Neues Fahrrad HINZUFÜGEN
+                                Neues Fahrrad hinzufügen
                             </option>}
 
                         </Form.Select>
@@ -125,11 +125,11 @@ const UserBikeFrom = ({ register, errors, setValue, bikes }) => {
             <Row className="mb-3">
                 <Col lg={4}>
                     <Form.Group>
-                        <Form.Label>Hersteller Drdo</Form.Label>
+                        <Form.Label>Hersteller</Form.Label>
                         <Form.Select aria-label="Default select example"
                             onChange={(e) => setValue('manufacturer', e.target.value)}
                         >
-                            <option disabled value="">Select Hersteller</option>
+                            <option disabled value="">Wähle Hersteller</option>
                             {defaultMefacturers.map((m, index) => (
                                 <option
                                     set selected={currnetBike.manufacturer === m}
@@ -141,7 +141,7 @@ const UserBikeFrom = ({ register, errors, setValue, bikes }) => {
 
                 <WizardInput
                     type="text"
-                    label="ZBezeichnung/Typ"
+                    label="Bezeichnung/Typ"
                     name="type"
                     formGroupProps={{ as: Col, sm: 4 }}
                     errors={errors}
@@ -173,11 +173,11 @@ const UserBikeFrom = ({ register, errors, setValue, bikes }) => {
 
                 <Col lg={4}>
                     <Form.Group>
-                        <Form.Label>Hersteller Schaltung Drdo</Form.Label>
+                        <Form.Label>Hersteller Schaltung</Form.Label>
                         <Form.Select aria-label="Default select example"
                             onChange={(e) => setValue('gear_shifters_manufacturer', e.target.value)}
                         >
-                            <option disabled value="">Select Hersteller Schaltung</option>
+                            <option disabled value="">Wähle den Hersteller der Schaltung</option>
                             {defaultGearShiftMenufacturers.map((m, index) => (
                                 <option
                                     set selected={currnetBike.gear_shifters_manufacturer === m}
@@ -210,11 +210,11 @@ const UserBikeFrom = ({ register, errors, setValue, bikes }) => {
 
                 <Col lg={4}>
                     <Form.Group>
-                        <Form.Label>Hersteller Bremsen Drdo</Form.Label>
+                        <Form.Label>Hersteller Bremsen</Form.Label>
                         <Form.Select aria-label="Default select example"
                             onChange={(e) => setValue('breakes_manufacturer', e.target.value)}
                         >
-                            <option disabled value="">Select Hersteller Bremsen</option>
+                            <option disabled value="">Wähle den Hersteller der Bremsen</option>
                             {defaultBreakesManufacturer.map((m, index) => (
                                 <option
                                     set selected={currnetBike.breakes_manufacturer === m}
@@ -257,7 +257,7 @@ const UserBikeFrom = ({ register, errors, setValue, bikes }) => {
                 />
                 <WizardInput
                     type="text"
-                    label="Mantel/Reifenprofil"
+                    label="Reifenbezeichnung"
                     name="tire_casing"
                     formGroupProps={{ as: Col, sm: 4 }}
                     errors={errors}
@@ -288,11 +288,11 @@ const UserBikeFrom = ({ register, errors, setValue, bikes }) => {
             <Row className="mb-3">
                 <Col lg={4}>
                     <Form.Group>
-                        <Form.Label>Motorenhersteller Drdo</Form.Label>
+                        <Form.Label>Antriebshersteller</Form.Label>
                         <Form.Select aria-label="Default select example"
                             onChange={(e) => setValue('motor_manufacturer', e.target.value)}
                         >
-                            <option disabled value="">Select Motorenhersteller</option>
+                            <option disabled value="">Wähle den Antriebshersteller</option>
                             {defaultMotorManufacturer.map((m, index) => (
                                 <option
                                     set selected={currnetBike.motor_manufacturer === m}
@@ -305,7 +305,7 @@ const UserBikeFrom = ({ register, errors, setValue, bikes }) => {
 
                 <WizardInput
                     type="text"
-                    label="Motorentyp"
+                    label="Antriebsart"
                     name="motor_type"
                     formGroupProps={{ as: Col, sm: 4 }}
                     errors={errors}

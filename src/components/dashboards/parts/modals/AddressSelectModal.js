@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal, Button, Form, Col, Row, InputGroup, FormControl, DropdownButton, Dropdown } from 'react-bootstrap'
+import { Modal, Button, Form, Col, Row, InputGroup, DropdownButton, Dropdown } from 'react-bootstrap'
 
 export const AddressSelectModal = ({ show, onHide, onSelect, userAddresses }) => {
 

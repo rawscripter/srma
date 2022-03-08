@@ -14,6 +14,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     loadServices();
+
     // eslint-disable-next-line
   }, []);
 

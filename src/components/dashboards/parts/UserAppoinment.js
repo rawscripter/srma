@@ -5,7 +5,8 @@ import { AppoinmentProvider } from 'services/appoinment/appoinment.context';
 import Moment from 'react-moment';
 import { toast } from 'react-toastify';
 import className from 'classnames';
-
+import { BikeSelectModal } from './modals/BikeSelectModal'
+import { AddressSelectModal } from './modals/AddressSelectModal'
 export const UserAppoinment = () => {
     const {
         isLoading,
@@ -23,6 +24,10 @@ export const UserAppoinment = () => {
         makeAppointment,
     } = useContext(AppoinmentProvider);
 
+
+    const [showBikeModal, setShowBikeModal] = React.useState(false);
+    const [showAddressModal, setShowAddressModal] = React.useState(false);
+    const [showBillingAddressModal, setShowBillingAddressModal] = React.useState(false);
 
 
 
@@ -88,30 +93,59 @@ export const UserAppoinment = () => {
                 <Row className='mt-5'>
                     <Col lg={4}>
                         <div className="form-group mb-4">
-                            <Form.Select aria-label="Default select example"
+                            <Button variant="outline-secondary " className="btn-block" onClick={() => setShowBikeModal(true)}>
 
-                                onChange={(e) => setAppointmentForm({ ...appointmentForm, bike_id: e.target.value })}
-                            >
-                                <option>
-                                    Wählen sie ihr Fahrrad aus
-                                </option>
-                                {userBikes.map((bike, index) => (
-                                    <option value={bike.bike_id} key={index}>Bike - {bike.bike_id}</option>
-                                ))}
-                            </Form.Select>
+                                {appointmentForm.bike_id ? `Bike - ${appointmentForm.bike_id}` : "Wählen sie ihr Fahrrad aus"}
+                            </Button>
+
+                            <BikeSelectModal
+                                show={showBikeModal}
+                                onHide={() => setShowBikeModal(false)}
+                                userBikes={userBikes}
+                                onSelect={(bike) => {
+                                    setAppointmentForm({ ...appointmentForm, bike_id: bike.bike_id });
+                                    setShowBikeModal(false);
+                                }}
+                            />
                         </div>
                         <div className="form-group mb-4">
-                            <Form.Select aria-label="Default select example"
-                                onChange={(e) => setAppointmentForm({ ...appointmentForm, repair_address: e.target.value })}
-                            >
-                                <option>Wählen sie ihre Reparaturadresse aus</option>
-                                {userAddress.map((address, index) => (
-                                    <option value={address.adresse_id} key={index}>Address - {address.adresse_id}</option>
-                                ))}
-                            </Form.Select>
+                            <Button variant="outline-secondary " className="btn-block" onClick={() => setShowAddressModal(true)}>
+                                {appointmentForm.repair_address ? `Repair Address - ${appointmentForm.repair_address}` : "Wählen sie ihre Reparaturadresse aus"}
+                            </Button>
+
+                            <AddressSelectModal
+                                show={showAddressModal}
+                                onHide={() => setShowAddressModal(false)}
+                                userAddresses={userAddress}
+                                onSelect={(address) => {
+                                    setAppointmentForm({ ...appointmentForm, repair_address: address.adresse_id });
+                                    setShowAddressModal(false);
+                                }}
+                            />
+
+
                         </div>
                         <div className="form-group">
-                            <Form.Select aria-label="Default select example"
+
+                            <Button variant="outline-secondary " className="btn-block" onClick={() => setShowBillingAddressModal(true)}>
+
+                                {appointmentForm.billing_address ? `Billing Address - ${appointmentForm.billing_address}` : "Wählen sie ihre Reparaturadresse aus"}
+
+
+                            </Button>
+
+
+                            <AddressSelectModal
+                                show={showBillingAddressModal}
+                                onHide={() => setShowBillingAddressModal(false)}
+                                userAddresses={userAddress}
+                                onSelect={(address) => {
+                                    setAppointmentForm({ ...appointmentForm, billing_address: address.adresse_id });
+                                    setShowBillingAddressModal(false);
+                                }}
+                            />
+
+                            {/* <Form.Select aria-label="Default select example"
                                 onChange={(e) => setAppointmentForm({ ...appointmentForm, billing_address: e.target.value })}
                             >
                                 <option>
@@ -120,7 +154,7 @@ export const UserAppoinment = () => {
                                 {userAddress.map((address, index) => (
                                     <option value={address.adresse_id} key={index}>Address - {address.adresse_id}</option>
                                 ))}
-                            </Form.Select>
+                            </Form.Select> */}
                         </div>
                     </Col>
 

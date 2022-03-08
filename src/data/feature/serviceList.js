@@ -16,6 +16,6 @@ export default [
     media: { icon: ['fas', 'wrench'], color: 'inverse', className: 'fs-6' },
     title: 'Schaltungsservice',
     description:
-      'Manchmal hängt die Schaltung oder springt nicht in den richtigen Gang? Hilfe'
+      'Manchmal hängt die Schaltung oder springt nicht in den richtigen Gang? Hilfe naht.'
   }
 ];

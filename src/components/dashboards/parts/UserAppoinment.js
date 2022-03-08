@@ -41,26 +41,26 @@ export const UserAppoinment = () => {
     const submitAppointment = () => {
 
         if (!appointmentForm.bike_id) {
-            toast.error('Please select a bike');
+            toast.error('Bitte ein Fahrrad auswählen');
             return;
         }
         if (!appointmentForm.repair_address) {
-            toast.error('Please select a repair address');
+            toast.error('Bitte eine Reparaturadresse angeben');
             return;
         }
         if (!appointmentForm.billing_address) {
-            toast.error('Please select a billing address');
+            toast.error('Bitte eine Rechnungsadresse angeben');
             return;
         }
         if (!appointmentForm.timeslot_start) {
-            toast.error('Please select a timeslot');
+            toast.error('Bitte einen Termin auswählen');
             return;
         }
 
 
         makeAppointment().then((response) => {
             console.log(response);
-            toast.success('Appointment has been made successfully');
+            toast.success('Der Termin wurde erfolgreich angefragt');
         }).catch(() => {
             toast.error('Something went wrong');
         }

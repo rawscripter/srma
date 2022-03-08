@@ -27,10 +27,10 @@ const Success = ({ reset }) => {
         setStep(1);
         setUser({});
         reset();
-        toast.success('Registration Successful');
+        toast.success('Registrierung erfolgreich');
         history.push('/auth/login');
       }).catch((err) => {
-        toast.error("Something went wrong. Please try again later");
+        toast.error("Etwas hat nicht geklappt. Bitte versuchen Sie es später nocheinmal");
       });
   };
 
@@ -43,8 +43,8 @@ const Success = ({ reset }) => {
               <Lottie options={defaultOptions} />
             </div>
           </div>
-          <h4 className="mb-1">Your account is all set!</h4>
-          <p className="fs-0">Now you can access to your account</p>
+          <h4 className="mb-1">Ihr Account wurde erfolgreich angelegt</h4>
+          <p className="fs-0">Sie können sich nun einloggen</p>
           <Button color="primary" className="px-5 my-3" onClick={registerUser}>
             Send Registration
           </Button>

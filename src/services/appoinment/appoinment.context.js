@@ -5,7 +5,7 @@ export const AppoinmentProvider = createContext();
 export const AppoinmentContext = ({ children }) => {
 
     const [isAppoinmentLoading, setIsAppoinmentLoading] = useState(false);
-    const [selectedService, setSelectedService] = useState('1');
+    const [selectedService, setSelectedService] = useState(null);
     const [freeSlots, setFreeSlots] = useState([]);
     const [error, setError] = useState(null);
     const [appointmentForm, setAppointmentForm] = useState({});

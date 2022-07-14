@@ -2,7 +2,8 @@ import React, { createContext, useState } from 'react';
 import {
     fetchUserDetails, fetchUserAddress, fetchUserBikes,
     saveUserBikeOnServer, saveUserAddressOnServer,
-    saveUserDetailsOnServer
+    saveUserDetailsOnServer,
+    deleteUserDetailsOnServer
 } from './userProfile.service';
 
 export const UserProfileProvider = createContext();
@@ -123,6 +124,26 @@ export const UserProfileContext = ({ children }) => {
         }
     }
 
+    const deleteUserDetails = async (userInfo) => {
+        setIsLoading(true);
+
+        try {
+            const response = await deleteUserDetailsOnServer(userInfo);
+            setIsLoading(false);
+            const { data } = response;
+            if (data.status.toLowerCase() === 'ok') {
+                showSuccessMessage('Success. Email is sent.');
+                setError(null);
+                loadUserDetails();
+            } else {
+                setError('Something went wrong');
+            }
+        } catch (error) {
+            setIsLoading(false);
+            setError('Something went wrong');
+        }
+    }
+
 
     const showSuccessMessage = (message) => {
         setSuccessMessage(message);
@@ -160,7 +181,8 @@ export const UserProfileContext = ({ children }) => {
             saveUserBike,
             successMessage,
             saveUserAddress,
-            saveUserDetails
+            saveUserDetails,
+            deleteUserDetails
         }}>
             {children}
         </UserProfileProvider.Provider>

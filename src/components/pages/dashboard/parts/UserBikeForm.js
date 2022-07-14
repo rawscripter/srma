@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import WizardInput from './WizardInput';
 import { Col, Row, Form } from 'react-bootstrap';
 import { UserProfileProvider } from 'services/profile/userProfile.context';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { BikeTireModal } from './modals/BikeTireModal'
+import { BikeTireTubeModal } from './modals/BikeTireTubeModal'
+import { BikeRimModal } from './modals/BikeRimModal'
 const UserBikeFrom = ({ register, errors, setValue, bikes }) => {
 
     const [currnetBike, setCurrentBike] = useState({});
@@ -100,8 +103,25 @@ const UserBikeFrom = ({ register, errors, setValue, bikes }) => {
         }
     }
 
+    const [showBikeTireTubeModal, setShowBikeTireTubeModal] = React.useState(false);
+    const [showBikeTireModal, setShowBikeTireModal] = React.useState(false);
+    const [showBikeRimModal, setShowBikeRimModal] = React.useState(false);
+
     return (
         <>
+            <BikeTireModal
+                show={showBikeTireModal}
+                onHide={() => setShowBikeTireModal(false)}
+            />
+            <BikeRimModal
+                show={showBikeRimModal}
+                onHide={() => setShowBikeRimModal(false)}
+            />
+            <BikeTireTubeModal
+                show={showBikeTireTubeModal}
+                onHide={() => setShowBikeTireTubeModal(false)}
+            />
+
             <Row>
                 <Col lg={4}>
                     <div className="form-group mb-4">
@@ -241,48 +261,103 @@ const UserBikeFrom = ({ register, errors, setValue, bikes }) => {
                 />
             </Row>
             <Row className="mb-3">
-                <WizardInput
-                    type="text"
-                    label="Reifengröße"
-                    name="rimsize"
-                    formGroupProps={{ as: Col, sm: 4 }}
-                    errors={errors}
-                    formControlProps={{
-                        ...register('rimsize', {
-                            // required: 'Reifengröße is required',
-                            value: currnetBike.rimsize
-                        }),
-                        defaultValue: currnetBike.rimsize
-                    }}
-                />
-                <WizardInput
-                    type="text"
-                    label="Reifenbezeichnung"
-                    name="tire_casing"
-                    formGroupProps={{ as: Col, sm: 4 }}
-                    errors={errors}
-                    formControlProps={{
-                        ...register('tire_casing', {
-                            // required: ' Mantel/Reifenprofil is required',
-                            value: currnetBike.tire_casing
-                        }),
-                        defaultValue: currnetBike.tire_casing
-                    }}
-                />
-                <WizardInput
-                    type="text"
-                    label="Schlauchhersteller"
-                    name="tire_tube"
-                    formGroupProps={{ as: Col, sm: 4 }}
-                    errors={errors}
-                    formControlProps={{
-                        ...register('tire_tube', {
-                            // required: 'Schlauchhersteller is required',
-                            value: currnetBike.tire_tube
-                        }),
-                        defaultValue: currnetBike.tire_tube
-                    }}
-                />
+                <Col lg={4}>
+                    <Row >
+                        <div className='d-flex align-items-center'>
+                            <WizardInput
+                                type="text"
+                                label="Reifengröße"
+                                name="rimsize"
+                                formGroupProps={{ as: Col, sm: 11 }}
+                                errors={errors}
+                                formControlProps={{
+                                    ...register('rimsize', {
+                                        // required: 'Reifengröße is required',
+                                        value: currnetBike.rimsize
+                                    }),
+                                    defaultValue: currnetBike.rimsize
+                                }}
+                            />
+                            <div>
+                                <button onClick={
+                                    () => setShowBikeRimModal(true)
+                                } type="button" className="btn" style={{
+                                    backgroundColor: '#f1f1f1',
+                                    margin: '10px',
+                                    marginTop: '40px',
+                                }}>
+                                    <FontAwesomeIcon icon="info" />
+                                </button>
+                            </div>
+                        </div>
+                    </Row>
+                </Col>
+
+
+                <Col lg={4}>
+                    <Row >
+                        <div className='d-flex align-items-center'>
+                            <WizardInput
+                                type="text"
+                                label="Reifenbezeichnung"
+                                name="tire_casing"
+                                formGroupProps={{ as: Col, sm: 11 }}
+                                errors={errors}
+                                formControlProps={{
+                                    ...register('tire_casing', {
+                                        // required: ' Mantel/Reifenprofil is required',
+                                        value: currnetBike.tire_casing
+                                    }),
+                                    defaultValue: currnetBike.tire_casing
+                                }}
+                            />
+                            <div>
+                                <button onClick={
+                                    () => setShowBikeTireModal(true)
+                                } type="button" className="btn" style={{
+                                        backgroundColor: '#f1f1f1',
+                                        margin: '10px',
+                                        marginTop: '40px',
+                                    }}>
+                                    <FontAwesomeIcon icon="info" />
+                                </button>
+                            </div>
+                        </div>
+                    </Row>
+                </Col>
+
+                <Col lg={4}>
+                    <Row >
+                        <div className='d-flex align-items-center'>
+                            <WizardInput
+                                type="text"
+                                label="Schlauchhersteller"
+                                name="tire_tube"
+                                formGroupProps={{ as: Col, sm:11 }}
+                                errors={errors}
+                                formControlProps={{
+                                    ...register('tire_tube', {
+                                        // required: 'Schlauchhersteller is required',
+                                        value: currnetBike.tire_tube
+                                    }),
+                                    defaultValue: currnetBike.tire_tube
+                                }}
+                            />
+                            <div>
+                                <button onClick={
+                                    () => setShowBikeTireTubeModal(true)
+                                } type="button" className="btn" style={{
+                                        backgroundColor: '#f1f1f1',
+                                        margin: '10px',
+                                        marginTop: '40px',
+                                    }}>
+                                    <FontAwesomeIcon icon="info" />
+                                </button>
+                            </div>
+                        </div>
+                    </Row>
+                </Col>
+
 
             </Row>
             <Row className="mb-3">
